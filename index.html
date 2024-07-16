@@ -10,13 +10,18 @@
 display: block;
 margin: 20px auto;
 border: 3px black solid;
-height: 400px;
+height: 350px;
 width: 400px;
+border-radius: 10px;
 }
 p{
     text-align: center;
     font-size: large;
     margin: 5px;
+}
+h1{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 img{
     height: 200px;
@@ -24,6 +29,7 @@ img{
     margin: 10px;
     margin-left: 50px ;
     border-radius: 10px;
+    box-shadow: 5px 5px 3px 3px gray;
 }
 .btn-container{
     margin-left: 160px;
@@ -34,6 +40,7 @@ img{
     font-weight: bold;
     font-size: large;
     text-align: center;
+    cursor: pointer;
 }
 </style>
 
@@ -43,14 +50,24 @@ img{
         <p>Select the quantity</p><hr/>
         <img src="photo.jpg"><br/>
         <div class="btn-container">
-        <button class="btn" onclick="btn_action()">+</button>
+        <button class="btn" onclick="btn_action('+')">+</button>
         <span id="text">1</span>
-        <button class="btn" onclick="btn_action()">-</button>
+        <button class="btn" onclick="btn_action('-')">-</button>
         </div>
         <script>
             function btn_action(s){
                 show = document.getElementById("text")
-                if(s=="+")
+                if(s=="+"){
+                    q=parseInt(show.innerText);
+                    show.innerText = q+1
+                }
+                else{
+                    q=parseInt(show.innerText);
+                    if(q!=1){
+                        show.innerText = q-1
+                    }
+                    
+                }
             }
         </script>
     </div>
